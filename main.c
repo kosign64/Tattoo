@@ -260,7 +260,7 @@ int main(void)
             }
             setArea(98, 127, 0, 1);
             batterLowPrev = batteryLow;
-            if((batteryVoltage > 217))
+            if((batteryVoltage > 238))
             {
                 batteryLow = false;
                 for(int i = 0; i < sizeof(fullBattery); i++)
@@ -268,7 +268,7 @@ int main(void)
                     dispSendData(~pgm_read_byte(&(fullBattery[i])));
                 }
             }
-            else if(batteryVoltage > 196)
+            else if(batteryVoltage > 231)
             {
                 batteryLow = false;
                 for(int i = 0; i < sizeof(fullBattery); i++)
@@ -276,8 +276,8 @@ int main(void)
                     dispSendData(~pgm_read_byte(&(midBattery[i])));
                 }
             }
-            else if((batteryVoltage > 188 && !lowBattery) ||
-                    (batteryVoltage > 193 && lowBattery))
+            else if((batteryVoltage > 222 && !lowBattery) ||
+                    (batteryVoltage > 226 && lowBattery))
             {
                 batteryLow = false;
                 for(int i = 0; i < sizeof(lowBattery); i++)
@@ -368,9 +368,9 @@ int main(void)
             OCR1A = 0;
         }
 #ifdef DEBUG
-        USART_Transmit(mVoltage / 100 + '0');
-        USART_Transmit((mVoltage / 10) % 10 + '0');
-        USART_Transmit(mVoltage % 10 + '0');
+        USART_Transmit(batteryVoltage / 100 + '0');
+        USART_Transmit((batteryVoltage / 10) % 10 + '0');
+        USART_Transmit(batteryVoltage % 10 + '0');
         USART_Transmit('\n');
         USART_Transmit('\r');
 #endif
