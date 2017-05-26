@@ -65,7 +65,7 @@ ISR(TIMER0_OVF_vect)
             setArea(0, 64, 0, 7);
             for(int i = 0; i < 1024 / 2; i++)
             {
-                dispSendData(pgm_read_byte(&(skull[i])));
+                dispSendData(pgm_read_byte(&(weapon[i])));
             }
             setArea(0, 63, 4, 7);
             for(int i = 0; i < (1024 / 4); i++)
@@ -86,7 +86,7 @@ ISR(TIMER0_OVF_vect)
             setArea(0, 64, 0, 7);
             for(int i = 0; i < 1024 / 2; i++)
             {
-                dispSendData(pgm_read_byte(&(skull[i])));
+                dispSendData(pgm_read_byte(&(weapon[i])));
             }
             setArea(64, 127, 0, 7);
             for(int i = 0; i < 1024 / 2; i++)
@@ -101,7 +101,7 @@ ISR(TIMER0_OVF_vect)
             redraw = false;
             for(int i = 0; i < 1024; i++)
             {
-                dispSendData(pgm_read_byte(&(skull[i])));
+                dispSendData(pgm_read_byte(&(weapon[i])));
             }
             setArea(64, 127, 0, 3);
             for(int i = 0; i < 1024 / 4; i++)
@@ -116,7 +116,7 @@ ISR(TIMER0_OVF_vect)
             redraw = false;
             for(int i = 0; i < 1024; i++)
             {
-                dispSendData(pgm_read_byte(&(skull[i])));
+                dispSendData(pgm_read_byte(&(weapon[i])));
             }
             currentFrame = 0;
         }
@@ -201,7 +201,7 @@ int main(void)
 #ifndef DEBUG
     for(int i = 0; i < 1024; i++)
     {
-        dispSendData(pgm_read_byte(&(skull[i])));
+        dispSendData(pgm_read_byte(&(weapon[i])));
     }
 #endif
     _delay_ms(1500);
