@@ -210,13 +210,6 @@ int main(void)
     {
         dispSendData(255);
     }
-//    while (1) {
-//        for(int i = 0; i < 1024; i++)
-//        {
-//            dispSendData(pgm_read_byte(&(skull[i])));
-//        }
-//    }
-
     while(1)
     {
         uchar batteryVoltage;
@@ -326,7 +319,6 @@ int main(void)
         }
         if(nkeyPressed > 0)
         {
-            //USART_Transmit(nkeyPressed);
             if(++pressCounter > 20)
             {
                 pressCounter = 0;
