@@ -194,7 +194,7 @@ int main(void)
     // controller
     int integral = 0;
     int error;
-    bool batteryLow, batterLowPrev = false;
+    bool batteryLow = false, batterLowPrev = false;
     initChip();
     dispInit();
     _delay_ms(100);
@@ -253,7 +253,7 @@ int main(void)
             }
             setArea(98, 127, 0, 1);
             batterLowPrev = batteryLow;
-            if((batteryVoltage > 238))
+            if((batteryVoltage > 252))
             {
                 batteryLow = false;
                 for(int i = 0; i < sizeof(fullBattery); i++)
@@ -261,7 +261,7 @@ int main(void)
                     dispSendData(~pgm_read_byte(&(fullBattery[i])));
                 }
             }
-            else if(batteryVoltage > 231)
+            else if(batteryVoltage > 248)
             {
                 batteryLow = false;
                 for(int i = 0; i < sizeof(fullBattery); i++)
@@ -269,8 +269,8 @@ int main(void)
                     dispSendData(~pgm_read_byte(&(midBattery[i])));
                 }
             }
-            else if((batteryVoltage > 222 && !lowBattery) ||
-                    (batteryVoltage > 226 && lowBattery))
+            else if((batteryVoltage > 240 && !batteryLow) ||
+                    (batteryVoltage > 245 && batteryLow))
             {
                 batteryLow = false;
                 for(int i = 0; i < sizeof(lowBattery); i++)
