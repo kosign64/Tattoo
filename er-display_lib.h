@@ -1,5 +1,5 @@
-#ifndef ER-DISPLAY_LIB_H
-#define ER-DISPLAY_LIB_H
+#ifndef ER_DISPLAY_LIB_H
+#define ER_DISPLAY_LIB_H
 
 #include "spi_lib.h"
 
